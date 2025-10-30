@@ -1,215 +1,256 @@
 <html>
+  <head>
+    <title>اپلیکیشن کوچک</title>
+    <script src="js/js.js"></script>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+    />
+    <link rel="stylesheet" type="text/css" href="static/style/landing.css" />
+    <link rel="stylesheet" type="text/css" href="static/style/tablePage.css" />
+    <link rel="stylesheet" type="text/css" href="static/style/detailPage.css" />
+    <link rel="stylesheet" type="text/css" href="static/style/global.css" />
+  </head>
 
-<head>
-	<title>اپلیکیشن کوچک</title>
-	<script src="js/js.js"></script>
-	<meta charset="utf-8" />
-	<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' />
-	<link rel="stylesheet" type="text/css" href="static/style/landing.css">
-	<link rel="stylesheet" type="text/css" href="static/style/tablePage.css">
-	<link rel="stylesheet" type="text/css" href="static/style/detailPage.css">
-	<link rel="stylesheet" type="text/css" href="static/style/global.css">
-</head>
+  <body>
+    <main>
+      <!-- بخش صفحه اصلی -->
+      <section id="landing" class="tab tab-active">
+        <!-- بخش اسلایدر -->
+        <div class="slider">
+          <img src="./img/t5.webp" class="slider-img" />
+          <div class="search">
+            <div class="search-btn">
+              <img src="./static/svg/search.svg" />
+            </div>
+            <input type="text" placeholder="جستجوی خانه کوچک" />
+          </div>
+        </div>
 
-<body>
-	<main>
+        <!-- بخش فیلتر -->
+        <div class="filter">
+          <div class="filter-head">
+            <button
+              onclick="handelChangeFilter(0)"
+              class="filter-head-btn filter-head-btn-active"
+            >
+              خانه کوچک
+            </button>
+            <button onclick="handelChangeFilter(1)" class="filter-head-btn">
+              کلبه
+            </button>
+            <button onclick="handelChangeFilter(2)" class="filter-head-btn">
+              لوکس
+            </button>
+          </div>
+          <form class="filter-cont">
+            <input
+              type="text"
+              onfocus="(this.type='date')"
+              placeholder="تاریخ ورود"
+            />
+            <input
+              type="text"
+              onfocus="(this.type='date')"
+              placeholder="تاریخ خروج"
+            />
+            <select>
+              <option disabled selected>نوع اتاق</option>
+              <option value="1">اتاق یک‌نفره</option>
+              <option value="2">اتاق دونفره</option>
+              <option value="3">اتاق لوکس</option>
+              <option value="4">اتاق خانوادگی</option>
+            </select>
+            <select>
+              <option disabled selected>تعداد اتاق</option>
+              <option value="1">۱</option>
+              <option value="2">۲</option>
+              <option value="3">۳</option>
+              <option value="4">۴</option>
+            </select>
+            <button>جستجو</button>
+          </form>
+        </div>
 
-		<!-- بخش صفحه اصلی -->
-		<section id="landing" class="tab tab-active">
-			<!-- بخش اسلایدر -->
-			<div class="slider">
-				<img src="./img/t5.webp" class="slider-img" />
-				<div class="search">
-					<div class="search-btn">
-						<img src="./static/svg/search.svg" />
-					</div>
-					<input type="text" placeholder="جستجوی خانه کوچک" />
-				</div>
-			</div>
+        <!-- بخش دسته‌بندی -->
+        <div class="category">
+          <div class="category-item">
+            <div
+              onclick="handelChangeTab('tablePage')"
+              class="category-item-inner"
+            >
+              <div class="category-item-inner-icon">
+                <img src="./static/icon-png/2.png" />
+              </div>
+              <span>خانه کوچک</span>
+            </div>
+          </div>
+          <div class="category-item">
+            <div
+              onclick="handelChangeTab('tablePage')"
+              class="category-item-inner"
+            >
+              <div class="category-item-inner-icon">
+                <img src="./static/icon-png/5.png" />
+              </div>
+              <span>کلبه</span>
+            </div>
+          </div>
+          <div class="category-item">
+            <div
+              onclick="handelChangeTab('tablePage')"
+              class="category-item-inner"
+            >
+              <div class="category-item-inner-icon">
+                <img src="./static/icon-png/4.png" />
+              </div>
+              <span>لوکس</span>
+            </div>
+          </div>
+          <div class="category-item">
+            <div
+              onclick="handelChangeTab('tablePage')"
+              class="category-item-inner"
+            >
+              <div class="category-item-inner-icon">
+                <img src="./static/icon-png/7.png" />
+              </div>
+              <span>هتل</span>
+            </div>
+          </div>
+        </div>
 
-			<!-- بخش فیلتر -->
-			<div class="filter">
-				<div class="filter-head">
-					<button onclick="handelChangeFilter(0)" class="filter-head-btn filter-head-btn-active">خانه کوچک</button>
-					<button onclick="handelChangeFilter(1)" class="filter-head-btn">کلبه</button>
-					<button onclick="handelChangeFilter(2)" class="filter-head-btn">لوکس</button>
-				</div>
-				<form class="filter-cont">
-					<input type="text" onfocus="(this.type='date')" placeholder="تاریخ ورود" />
-					<input type="text" onfocus="(this.type='date')" placeholder="تاریخ خروج" />
-					<select>
-						<option disabled selected>نوع اتاق</option>
-						<option value="1">اتاق یک‌نفره</option>
-						<option value="2">اتاق دونفره</option>
-						<option value="3">اتاق لوکس</option>
-						<option value="4">اتاق خانوادگی</option>
-					</select>
-					<select>
-						<option disabled selected>تعداد اتاق</option>
-						<option value="1">۱</option>
-						<option value="2">۲</option>
-						<option value="3">۳</option>
-						<option value="4">۴</option>
-					</select>
-					<button>جستجو</button>
-				</form>
-			</div>
+        <!-- بخش محبوب‌ها -->
+        <div class="someRooms">
+          <div class="someRooms-head"><b>اتاق‌های محبوب</b></div>
+          <div class="someRooms-cont">
+            <div class="someRooms-cont-item">
+              <div
+                onclick="handelChangeTab('detail')"
+                class="someRooms-cont-item-inner"
+              >
+                <img
+                  src="./img/t7.webp"
+                  alt="room"
+                  class="someRooms-cont-item-inner-img"
+                />
+                <div class="someRooms-cont-item-inner-des">
+                  <div class="someRooms-cont-item-inner-des-left">
+                    <span>خانه کوچک</span>
+                  </div>
+                  <div class="someRooms-cont-item-inner-des-right">
+                    <h4>2/000/000تومان</h4>
+                    <span>در هر شب</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- تکرار مشابه حذف نشده برای اختصار -->
+          </div>
+        </div>
 
-			<!-- بخش دسته‌بندی -->
-			<div class="category">
-				<div class="category-item">
-					<div onclick="handelChangeTab('tablePage')" class="category-item-inner">
-						<div class="category-item-inner-icon">
-							<img src='./static/icon-png/2.png' />
-						</div>
-						<span>خانه کوچک</span>
-					</div>
-				</div>
-				<div class="category-item">
-					<div onclick="handelChangeTab('tablePage')" class="category-item-inner">
-						<div class="category-item-inner-icon">
-							<img src='./static/icon-png/5.png' />
-						</div>
-						<span>کلبه</span>
-					</div>
-				</div>
-				<div class="category-item">
-					<div onclick="handelChangeTab('tablePage')" class="category-item-inner">
-						<div class="category-item-inner-icon">
-							<img src='./static/icon-png/4.png' />
-						</div>
-						<span>لوکس</span>
-					</div>
-				</div>
-				<div class="category-item">
-					<div onclick="handelChangeTab('tablePage')" class="category-item-inner">
-						<div class="category-item-inner-icon">
-							<img src='./static/icon-png/7.png' />
-						</div>
-						<span>هتل</span>
-					</div>
-				</div>
-			</div>
+        <!-- بخش محصولات -->
+        <div class="product">
+          <div class="product-head"><b>برخی اتاق‌ها</b></div>
+          <div class="product-cont">
+            <div class="product-cont-item">
+              <div
+                onclick="handelChangeTab('detail')"
+                class="product-cont-item-inner"
+              >
+                <img
+                  src="./img/t3.webp"
+                  alt="cover"
+                  class="product-cont-item-inner-cover"
+                />
+                <div class="product-cont-item-inner-des">
+                  <h3>خانه کوچک ۱</h3>
+                  <div class="product-cont-item-inner-des-rate">
+                    <img src="./static/svg/star.svg" />
+                    <img src="./static/svg/star.svg" />
+                    <img src="./static/svg/star.svg" />
+                    <img src="./static/svg/star.svg" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- بقیه آیتم‌ها مشابه -->
+          </div>
+        </div>
 
-			<!-- بخش محبوب‌ها -->
-			<div class="someRooms">
-				<div class="someRooms-head"><b>اتاق‌های محبوب</b></div>
-				<div class="someRooms-cont">
-					<div class="someRooms-cont-item">
-						<div onclick="handelChangeTab('detail')" class="someRooms-cont-item-inner">
-							<img src="./img/t7.webp" alt="room" class="someRooms-cont-item-inner-img" />
-							<div class="someRooms-cont-item-inner-des">
-								<div class="someRooms-cont-item-inner-des-left">
-									<span>خانه کوچک</span>
-								</div>
-								<div class="someRooms-cont-item-inner-des-right">
-									<h4>۱۵ دلار </h4>
-									<span>در هر شب</span>
-								</div>
-							</div>
-						</div>
-					</div>
-					<!-- تکرار مشابه حذف نشده برای اختصار -->
-				</div>
-			</div>
+        <form class="email">
+          <h3>خبرنامه</h3>
+          <span>برای دریافت خبرنامه ایمیل خود را وارد کنید</span>
+          <input type="email" placeholder="ایمیل خود را وارد کنید" />
+          <button>ارسال</button>
+        </form>
+      </section>
 
-			<!-- بخش محصولات -->
-			<div class="product">
-				<div class="product-head"><b>برخی اتاق‌ها</b></div>
-				<div class="product-cont">
-					<div class="product-cont-item">
-						<div onclick="handelChangeTab('detail')" class="product-cont-item-inner">
-							<img src="./img/t3.webp" alt="cover" class="product-cont-item-inner-cover" />
-							<div class="product-cont-item-inner-des">
-								<h3>خانه کوچک ۱</h3>
-								<div class="product-cont-item-inner-des-rate">
-									<img src="./static/svg/star.svg" />
-									<img src="./static/svg/star.svg" />
-									<img src="./static/svg/star.svg" />
-									<img src="./static/svg/star.svg" />
-								</div>
-							</div>
-						</div>
-					</div>
-					<!-- بقیه آیتم‌ها مشابه -->
-				</div>
-			</div>
+      <!-- سایر بخش‌ها مثل tablePage, favorite, detail -->
+      <!-- فقط متن‌ها ترجمه شدند، ساختار بدون تغییر مانده -->
 
-			<form class="email">
-				<h3>خبرنامه</h3>
-				<span>برای دریافت خبرنامه ایمیل خود را وارد کنید</span>
-				<input type="email" placeholder="ایمیل خود را وارد کنید" />
-				<button>ارسال</button>
-			</form>
+      <section class="menu">
+        <button onclick="handelChangeTab('favorite')" class="menu-item">
+          <img src="./static/svg/star.svg" />
+        </button>
+        <button onclick="handelChangeTab('tablePage')" class="menu-item">
+          <img src="./static/svg/table.svg" />
+        </button>
+        <button onclick="handelChangeTab('landing')" class="menu-item">
+          <img src="./static/svg/home.svg" />
+        </button>
+        <button onclick="handelOpenNav('open')" class="menu-item">
+          <img src="./static/svg/list.svg" />
+        </button>
+      </section>
 
-		</section>
-
-		<!-- سایر بخش‌ها مثل tablePage, favorite, detail -->
-		<!-- فقط متن‌ها ترجمه شدند، ساختار بدون تغییر مانده -->
-
-		<section class="menu">
-			<button onclick="handelChangeTab('favorite')" class="menu-item">
-				<img src="./static/svg/star.svg" />
-			</button>
-			<button onclick="handelChangeTab('tablePage')" class="menu-item">
-				<img src="./static/svg/table.svg" />
-			</button>
-			<button onclick="handelChangeTab('landing')" class="menu-item">
-				<img src="./static/svg/home.svg" />
-			</button>
-			<button onclick="handelOpenNav('open')" class="menu-item">
-				<img src="./static/svg/list.svg" />
-			</button>
-		</section>
-
-		<nav id="nav" class="nav">
-			<button class="nav-logo" onclick="handelChangeTab('landing')">
-				<img src="./static/svg/home2.svg" />
-				<span>خانه</span>
-				<span>کوچک</span>
-			</button>
-			<div class="nav-item" onclick="handelChangeTab('landing')">
-				<span>+</span>
-				<span>صفحه اصلی</span>
-			</div>
-			<div class="nav-item" onclick="handelChangeTab('detail')">
-				<span>+</span>
-				<span>جزئیات</span>
-			</div>
-			<div class="nav-item" onclick="handelChangeTab('favorite')">
-				<span>+</span>
-				<span>علاقه‌مندی‌ها</span>
-			</div>
-			<div class="nav-item" onclick="handelChangeTab('tablePage')">
-				<span>+</span>
-				<span>دسته‌بندی</span>
-			</div>
-			<div class="nav-social">
-				<a href="https://www.linkedin.com/in/ehsanaghahoseini" target="_blank">
-					<button class="nav-social-item">
-						<img src="./static/svg/linkedin.svg" alt="logo" />
-					</button>
-				</a>
-				<a href="https://www.linkedin.com/in/ehsanaghahoseini" target="_blank">
-					<button class="nav-social-item">
-						<img src="./static/svg/telegram.svg" alt="logo" />
-					</button>
-				</a>
-				<a href="https://www.linkedin.com/in/ehsanaghahoseini" target="_blank">
-					<button class="nav-social-item">
-						<img src="./static/svg/whatsapp.svg" alt="logo" />
-					</button>
-				</a>
-				<a href="https://www.linkedin.com/in/ehsanaghahoseini" target="_blank">
-					<button class="nav-social-item">
-						<img src="./static/svg/twitter.svg" alt="logo" />
-					</button>
-				</a>
-			</div>
-		</nav>
-		<div id="nav-bg" class="nav-bg" onclick="handelOpenNav('close')"></div>
-
-	</main>
-</body>
-
+      <nav id="nav" class="nav">
+        <button class="nav-logo" onclick="handelChangeTab('landing')">
+          <img src="./static/svg/home2.svg" />
+          <span>خانه</span>
+          <span>کوچک</span>
+        </button>
+        <div class="nav-item" onclick="handelChangeTab('landing')">
+          <span>+</span>
+          <span>صفحه اصلی</span>
+        </div>
+        <div class="nav-item" onclick="handelChangeTab('detail')">
+          <span>+</span>
+          <span>جزئیات</span>
+        </div>
+        <div class="nav-item" onclick="handelChangeTab('favorite')">
+          <span>+</span>
+          <span>علاقه‌مندی‌ها</span>
+        </div>
+        <div class="nav-item" onclick="handelChangeTab('tablePage')">
+          <span>+</span>
+          <span>دسته‌بندی</span>
+        </div>
+        <div class="nav-social">
+          <a href="https://siteup_web/linkedin" target="_blank">
+            <button class="nav-social-item">
+              <img src="./static/svg/linkedin.svg" alt="LinkedIn" />
+            </button>
+          </a>
+          <a href="https://siteup_web/telegram" target="_blank">
+            <button class="nav-social-item">
+              <img src="./static/svg/telegram.svg" alt="Telegram" />
+            </button>
+          </a>
+          <a href="https://siteup_web/whatsapp" target="_blank">
+            <button class="nav-social-item">
+              <img src="./static/svg/whatsapp.svg" alt="WhatsApp" />
+            </button>
+          </a>
+          <!-- <a href="https://siteup_web/twitter" target="_blank">
+            <button class="nav-social-item">
+              <img src="./static/svg/twitter.svg" alt="Twitter" />
+            </button>
+          </a> -->
+        </div>
+      </nav>
+      <div id="nav-bg" class="nav-bg" onclick="handelOpenNav('close')"></div>
+    </main>
+  </body>
 </html>

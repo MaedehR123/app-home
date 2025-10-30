@@ -1,187 +1,206 @@
+/* تعریف فونت سفارشی Quicksand از فایل محلی */
 @font-face {
   font-family: 'Quicksand';
   font-style: normal;
   font-weight: 600;
   font-display: swap;
   src: url(../font/6xK-dSZaM9iE8KbpRA_LJ3z8mH9BOJvgkCEv58a-wg.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  /* محدوده کاراکترهای پشتیبانی‌شده */
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, 
+  U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, 
+  U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, 
+  U+2212, U+2215, U+FEFF, U+FFFD;
 }
+
+/* تنظیم کلی برای محاسبه فاصله‌ها در کل صفحه */
 * {
-    box-sizing: border-box
-  }
+  box-sizing: border-box;
+}
 
-  html , body {
-    scroll-behavior: smooth;
-  }
-  
-  span,
-  div,
-  input,
-  textarea,
-  button,
-  select,
-  a,
-  pre {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    font-family: 'Quicksand', sans-serif !important;
-  }
-  
-  body {
-    font-family: 'Quicksand', sans-serif !important;
-    background: #f9f9f9;
-    margin: 0 !important;
-  }
+/* فعال کردن اسکرول نرم برای کل صفحه */
+html, body {
+  scroll-behavior: smooth;
+}
 
-  main {
-    width: 100%;
-    max-width: 400px;
-    background: #fff;
-    margin: 0 auto;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    overflow-x: hidden;
-    position: relative;
-  }
+/* حذف هایلایت هنگام لمس در موبایل و اعمال فونت سراسری */
+span,
+div,
+input,
+textarea,
+button,
+select,
+a,
+pre {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  font-family: 'Quicksand', sans-serif !important;
+}
 
-  input:focus , select:focus , textarea:focus {
-    outline: none;
-  }
+/* تنظیمات عمومی بدنه صفحه */
+body {
+  font-family: 'Quicksand', sans-serif !important;
+  background: #f9f9f9; /* رنگ پس‌زمینه ملایم */
+  margin: 0 !important;
+}
 
-  .tab {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    padding-bottom: 80px;
-    margin-top: 20px;
-    transition: all 0.3s;
-    opacity: 0;
-    visibility: hidden;
-  }
+/* ساختار اصلی اپلیکیشن (محدود به 400 پیکسل برای طراحی موبایل) */
+main {
+  width: 100%;
+  max-width: 400px;
+  background: #fff;
+  margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  position: relative;
+}
 
-  .tab-active {
-    margin-top: 0;
-    transition: all 0.3s;
-    opacity: 1;
-    visibility: visible;
-  }
+/* حذف حاشیه فوکوس از ورودی‌ها */
+input:focus, select:focus, textarea:focus {
+  outline: none;
+}
 
-  .tab-hide {
-    display: none;
-  }
+/* استایل کلی برای هر تب (صفحه داخلی اپ) */
+.tab {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 80px;
+  margin-top: 20px;
+  transition: all 0.3s;
+  opacity: 0;
+  visibility: hidden;
+}
 
+/* تب فعال (قابل‌نمایش) */
+.tab-active {
+  margin-top: 0;
+  transition: all 0.3s;
+  opacity: 1;
+  visibility: visible;
+}
 
-  /* Style For menu */
+/* پنهان کردن کامل تب */
+.tab-hide {
+  display: none;
+}
 
-  .menu {
-    position: fixed;
-    height: 50px;
-    box-shadow: rgba(50, 50, 50, 0.1) 0px 4px 12px;
-    background: #fff;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    max-width: 400px;
-    margin: auto;
-    display: flex;
-    align-items: center;
-    z-index: 100;
-  }
+/* ---------------------- استایل منوی پایین صفحه ---------------------- */
 
-  .menu-item {
-    width: 100%;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: none;
-    border-radius: 0;
-    background: none;
-    cursor: pointer;
-  }
+.menu {
+  position: fixed;
+  height: 50px;
+  box-shadow: rgba(50, 50, 50, 0.1) 0px 4px 12px; /* سایه منو */
+  background: #fff;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  max-width: 400px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  z-index: 100;
+}
 
-  .menu-item img , .menu-item object {
-    width: 25px;
-    opacity: 0.7;
-  }
+/* هر دکمه از منوی پایین */
+.menu-item {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 0;
+  background: none;
+  cursor: pointer;
+}
 
+/* آیکون‌های داخل منو */
+.menu-item img, .menu-item object {
+  width: 25px;
+  opacity: 0.7;
+}
 
-  /* Nav Style */
+/* ---------------------- استایل منوی کناری (Nav) ---------------------- */
 
-  .nav {
-    width: 250px;
-    top: 0;
-    bottom: 0;
-    left:-300px;
-    z-index: 120;
-    background: #fff;
-    position: fixed;
-    border-radius: 0 20px 20px 0;
-    box-shadow: rgba(50, 50, 50, 0.1) 0px 4px 12px;
-    display: flex;
-    flex-direction: column;
-    transition: all 0.3s;
-    transition-delay: 300ms;
-    padding: 20px;
-  }
+/* ساختار اصلی منوی کناری */
+.nav {
+  width: 250px;
+  top: 0;
+  bottom: 0;
+  left: -300px; /* به‌صورت پیش‌فرض مخفی */
+  z-index: 120;
+  background: #fff;
+  position: fixed;
+  border-radius: 0 20px 20px 0;
+  box-shadow: rgba(50, 50, 50, 0.1) 0px 4px 12px;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s;
+  transition-delay: 300ms;
+  padding: 20px;
+}
 
+/* زمانی که منو باز می‌شود */
+.nav-active {
+  transition: all 0.3s;
+  left: 0;
+  transition-delay: 300ms;
+}
 
-  .nav-active {
-    transition: all 0.3s;
-    left: 0;
-    transition-delay: 300ms;
+/* پس‌زمینه نیمه‌شفاف پشت منو هنگام باز شدن */
+.nav-bg {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 100%;
+  z-index: 110;
+  background: #00000074;
+  transition: all 0.3s;
+}
 
-  }
+/* فعال شدن پس‌زمینه تاریک */
+.nav-bg-active {
+  right: 0;
+  transition: all 0.3s;
+}
 
-  .nav-bg {
-    position: fixed;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    right: 100%;
-    z-index: 110;
-    background: #00000074;
-    transition: all 0.3s;
-  }
+/* لوگو در بالای منوی کناری */
+.nav-logo {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  cursor: pointer;
+  background: transparent;
+  font-size: 18px;
+  border: none;
+}
 
-  .nav-bg-active {
-    right: 0;
-    transition: all 0.3s;
-  }
+/* آیکون خانه در لوگو */
+.nav-logo img {
+  width: 35px;
+}
 
-
-  .nav-logo {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-    cursor: pointer;
-    background: transparent;
-    font-size: 18px;
-    border: none;
-  }
-
-  .nav-logo img {
-    width: 35px;
-  }
-
-
- .nav-logo span:nth-of-type(1) {
+/* متن رنگی در لوگو (مثلاً "خانه" با رنگ گوجه‌ای) */
+.nav-logo span:nth-of-type(1) {
   color: tomato;
   font-size: 18px;
   margin: 0 5px;
- }
+}
 
-
- .nav-item {
+/* هر آیتم از لیست منوی کناری */
+.nav-item {
   width: 100%;
   height: 40px;
   display: flex;
   align-items: center;
   cursor: pointer;
- }
+}
 
- .nav-item span:nth-of-type(1) {
+/* آیکون دایره‌ای در ابتدای هر آیتم */
+.nav-item span:nth-of-type(1) {
   width: 19px;
   height: 19px;
   color: white;
@@ -191,38 +210,47 @@
   align-items: center;
   justify-content: center;
   font-size: 12px;
- }
+}
 
- .nav-item span:nth-of-type(2) {
+/* عنوان متن هر آیتم در منو */
+.nav-item span:nth-of-type(2) {
   font-size: 13px;
   margin-left: 10px;
- }
+}
 
+/* ---------------------- بخش شبکه‌های اجتماعی در منوی کناری ---------------------- */
 
- .nav-social {
+.nav-social {
   width: 100%;
   margin-top: 20px;
   padding-top: 20px;
-  border-top: 1px solid #e0e0e0;
+  border-top: 1px solid #e0e0e0; /* خط جداکننده */
   display: flex;
   align-items: center;
   justify-content: center;
- }
+}
 
- .nav-social-item {
+/* دکمه هر شبکه اجتماعی */
+.nav-social-item {
   width: 35px;
   height: 35px;
   border-radius: 10px;
   margin: 0 5px;
-  border:1px solid tomato;
+  border: 1px solid tomato;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   background: white;
- }
+}
 
-
- .nav-social-item img {
+/* آیکون داخل دکمه شبکه اجتماعی */
+.nav-social-item img {
   width: 20px;
- }
+}
+
+
+.nav-social-item:hover{
+   border-radius: 30px;
+
+}

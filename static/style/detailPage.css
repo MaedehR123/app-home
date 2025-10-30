@@ -1,43 +1,43 @@
-
-
-/* Style detail */
-
+/* استایل کلی بخش جزئیات (صفحه detail) */
 .detail {
     width: 100%;
     display: flex;
     flex-direction: column;
 }
 
-
+/* بخش اسلایدر تصاویر اتاق */
 .detail-slider {
     width: 100%;
     display: flex;
     flex-direction: column;
 }
 
+/* تصویر اصلی اسلایدر */
 .detail-slider-cover {
     width: 100%;
     height: 300px;
-    object-fit: cover;
-    object-position: center;
-    border-radius: 0 0 30px 30px;
+    object-fit: cover; /* تصویر بدون کشیدگی نمایش داده شود */
+    object-position: center; /* مرکز تصویر نمایش داده شود */
+    border-radius: 0 0 30px 30px; /* گوشه‌های پایین گرد */
     overflow: hidden;
 }
 
-
+/* نوار تصاویر کوچک (زیر اسلایدر) */
 .detail-cont {
     width: 100%;
     display: flex;
     align-items: center;
-    overflow-x: scroll;
+    overflow-x: scroll; /* اسکرول افقی */
     padding: 5px;
 }
 
+/* هر آیتم از لیست تصاویر کوچک */
 .detail-cont-item {
     display: flex;
     padding: 5px;
 }
 
+/* تصویر داخلی هر آیتم کوچک */
 .detail-cont-item-inner {
     width: 120px;
     height: 80px;
@@ -49,7 +49,7 @@
     object-position: center;
 }
 
-
+/* بخش بالای جزئیات (شامل نام و قیمت) */
 .detail-head {
     width: 100%;
     display: flex;
@@ -58,23 +58,26 @@
     padding: 20px 10px;
 }
 
-
+/* بخش چپ و راست هدر جزئیات */
 .detail-head-left , .detail-head-right {
     display: flex;
     flex-direction: column;
 }
 
+/* عنوان اصلی (نام اتاق) */
 .detail-head-left h1 {
     margin: 0;
     font-size: 17px;
 }
 
+/* بخش امتیاز ستاره‌ای */
 .detail-head-left-rate {
     display: flex;
     align-items: center;
     margin: 10px 0;
 }
 
+/* نقطه‌های رنگی برای امتیاز */
 .detail-head-left-rate span {
     width: 10px;
     height: 10px;
@@ -84,18 +87,19 @@
     border-radius: 50%;
 }
 
-
+/* قیمت در سمت راست */
 .detail-head-right span:nth-of-type(1) {
     font-size: 18px;
 }
 
+/* متن کوچک‌تر زیر قیمت (مثلاً "هر شب") */
 .detail-head-right span:nth-of-type(2) {
     font-size: 14px;
     color: #ababab;
     margin-top: 5px;
 }
 
-
+/* بخش امکانات اتاق */
 .detail-facilities {
     width: 100%;
     display: flex;
@@ -103,14 +107,15 @@
     margin-top: 20px;
 }
 
+/* عنوان بخش امکانات */
 .detail-facilities-head {
     width: 100%;
-    /* height: 40px; */
     display: flex;
     align-items: center;
     padding: 0 10px;
 }
 
+/* لیست اسکرولی آیکون‌های امکانات */
 .detail-facilities-cont {
     width: 100%;
     display: flex;
@@ -119,11 +124,13 @@
     padding: 0 10px;
 }
 
+/* هر آیتم از امکانات */
 .detail-facilities-cont-item {
     display: flex;
     padding: 10px;
 }
 
+/* ساختار داخلی هر آیتم (آیکون + متن) */
 .detail-facilities-cont-item-inner {
     width: 50px;
     display: flex;
@@ -131,6 +138,7 @@
     align-items: center;
 }
 
+/* آیکون داخل دایره خاکستری */
 .detail-facilities-cont-item-inner-icon {
     width: 50px;
     height: 50px;
@@ -143,12 +151,12 @@
     background: #f2f2f2;
 }
 
-
+/* اندازه آیکون امکانات */
 .detail-facilities-cont-item-inner-icon img {
     width: 30px;
 }
 
-
+/* متن زیر هر آیکون (توضیح کوتاه) */
 .detail-facilities-cont-item-inner span {
     font-size: 12px;
     margin-top: 5px;
@@ -156,8 +164,7 @@
     color: #a1a1a1;
 }
 
-
-
+/* بخش توضیحات (درباره اتاق) */
 .detail-des {
     width: 100%;
     display: flex;
@@ -165,14 +172,15 @@
     margin-top: 35px;
 }
 
+/* عنوان بخش توضیحات */
 .detail-des-head {
     width: 100%;
-    /* height: 40px; */
     display: flex;
     align-items: center;
     padding: 0 10px;
 }
 
+/* متن توضیحات */
 .detail-des-cont {
     width: 100%;
     padding: 0 10px;
@@ -180,12 +188,10 @@
     color: #757575;
     font-size: 13px;
     margin-top: 10px;
-    line-height: 28px;
+    line-height: 28px; /* فاصله بین خطوط */
 }
 
-
-
-
+/* بخش رزرو (فرم ورود تاریخ و اطلاعات) */
 .detail-reserve {
     width: 100%;
     display: flex;
@@ -193,18 +199,18 @@
     margin-top: 35px;
 }
 
+/* عنوان بخش رزرو */
 .detail-reserve-head {
     width: 100%;
-    /* height: 40px; */
     display: flex;
     align-items: center;
     padding: 0 10px;
 }
 
+/* فرم رزرو شامل فیلدها و دکمه */
 .detail-reserve-cont {
     width: 95%;
     position: relative;
-    /* background: red; */
     margin: 0 auto;
     margin-top: 10px;
     display: flex;
@@ -212,10 +218,10 @@
     border-radius: 20px;
     overflow: hidden;
     padding: 10px;
-    box-shadow: rgba(50, 50, 50, 0.1) 0px 4px 12px;
+    box-shadow: rgba(50, 50, 50, 0.1) 0px 4px 12px; /* سایه ملایم */
 }
 
-
+/* ورودی‌ها و منوهای انتخاب در فرم رزرو */
 .detail-reserve-cont input ,
 .detail-reserve-cont select {
     width: 100%;
@@ -227,14 +233,13 @@
     background: #fff;
 }
 
+/* دکمه ارسال رزرو */
 .detail-reserve-cont button {
     width: 100%;
     height: 35px;
     border-radius: 5px;
-    background: tomato;
+    background: tomato; /* رنگ اصلی دکمه */
     border:none;
     color: #fff;
     cursor: pointer;
 }
-
-

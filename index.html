@@ -1,12 +1,17 @@
 <html>
   <head>
     <title>اپلیکیشن کوچک</title>
+    <!-- فایل جاوااسکریپت برای کنترل تب‌ها، فیلترها و عملکرد دکمه‌ها -->
     <script src="js/js.js"></script>
+
+    <!-- تنظیمات عمومی و سازگاری با مرورگر و موبایل -->
     <meta charset="utf-8" />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
     />
+
+    <!-- فایل‌های استایل (CSS) برای بخش‌های مختلف صفحه -->
     <link rel="stylesheet" type="text/css" href="static/style/landing.css" />
     <link rel="stylesheet" type="text/css" href="static/style/tablePage.css" />
     <link rel="stylesheet" type="text/css" href="static/style/detailPage.css" />
@@ -15,11 +20,12 @@
 
   <body>
     <main>
-      <!-- بخش صفحه اصلی -->
+      <!-- ✅ بخش صفحه اصلی -->
       <section id="landing" class="tab tab-active">
-        <!-- بخش اسلایدر -->
+        <!-- 🎞️ بخش اسلایدر -->
         <div class="slider">
           <img src="./img/t5.webp" class="slider-img" />
+          <!-- 🔍 نوار جستجو درون اسلایدر -->
           <div class="search">
             <div class="search-btn">
               <img src="./static/svg/search.svg" />
@@ -28,8 +34,9 @@
           </div>
         </div>
 
-        <!-- بخش فیلتر -->
+        <!-- 🧩 بخش فیلتر اتاق‌ها -->
         <div class="filter">
+          <!-- دکمه‌های فیلتر دسته‌بندی -->
           <div class="filter-head">
             <button
               onclick="handelChangeFilter(0)"
@@ -44,6 +51,8 @@
               لوکس
             </button>
           </div>
+
+          <!-- فرم فیلتر برای جستجوی دقیق‌تر -->
           <form class="filter-cont">
             <input
               type="text"
@@ -73,8 +82,9 @@
           </form>
         </div>
 
-        <!-- بخش دسته‌بندی -->
+        <!-- 🏠 بخش دسته‌بندی اتاق‌ها -->
         <div class="category">
+          <!-- هر گزینه با کلیک، صفحه مربوطه را باز می‌کند -->
           <div class="category-item">
             <div
               onclick="handelChangeTab('tablePage')"
@@ -121,10 +131,11 @@
           </div>
         </div>
 
-        <!-- بخش محبوب‌ها -->
+        <!-- 💖 بخش اتاق‌های محبوب -->
         <div class="someRooms">
           <div class="someRooms-head"><b>اتاق‌های محبوب</b></div>
           <div class="someRooms-cont">
+            <!-- آیتم نمونه اتاق -->
             <div class="someRooms-cont-item">
               <div
                 onclick="handelChangeTab('detail')"
@@ -140,17 +151,17 @@
                     <span>خانه کوچک</span>
                   </div>
                   <div class="someRooms-cont-item-inner-des-right">
-                    <h4>2/000/000تومان</h4>
+                    <h4>2/000/000 تومان</h4>
                     <span>در هر شب</span>
                   </div>
                 </div>
               </div>
             </div>
-            <!-- تکرار مشابه حذف نشده برای اختصار -->
+            <!-- سایر اتاق‌ها مشابه همین ساختار -->
           </div>
         </div>
 
-        <!-- بخش محصولات -->
+        <!-- 🏕️ بخش محصولات (اتاق‌های دیگر) -->
         <div class="product">
           <div class="product-head"><b>برخی اتاق‌ها</b></div>
           <div class="product-cont">
@@ -166,6 +177,7 @@
                 />
                 <div class="product-cont-item-inner-des">
                   <h3>خانه کوچک ۱</h3>
+                  <!-- ⭐ بخش نمایش امتیاز -->
                   <div class="product-cont-item-inner-des-rate">
                     <img src="./static/svg/star.svg" />
                     <img src="./static/svg/star.svg" />
@@ -175,10 +187,10 @@
                 </div>
               </div>
             </div>
-            <!-- بقیه آیتم‌ها مشابه -->
           </div>
         </div>
 
+        <!-- 📧 بخش عضویت در خبرنامه -->
         <form class="email">
           <h3>خبرنامه</h3>
           <span>برای دریافت خبرنامه ایمیل خود را وارد کنید</span>
@@ -187,9 +199,7 @@
         </form>
       </section>
 
-      <!-- سایر بخش‌ها مثل tablePage, favorite, detail -->
-      <!-- فقط متن‌ها ترجمه شدند، ساختار بدون تغییر مانده -->
-
+      <!-- 🧭 منوی پایین صفحه (Navigation Bottom Menu) -->
       <section class="menu">
         <button onclick="handelChangeTab('favorite')" class="menu-item">
           <img src="./static/svg/star.svg" />
@@ -205,12 +215,16 @@
         </button>
       </section>
 
+      <!-- 📋 منوی کناری (Navigation Side Menu) -->
       <nav id="nav" class="nav">
+        <!-- لوگوی سایت در منوی کناری -->
         <button class="nav-logo" onclick="handelChangeTab('landing')">
           <img src="./static/svg/home2.svg" />
           <span>خانه</span>
           <span>کوچک</span>
         </button>
+
+        <!-- آیتم‌های منوی کناری -->
         <div class="nav-item" onclick="handelChangeTab('landing')">
           <span>+</span>
           <span>صفحه اصلی</span>
@@ -227,6 +241,8 @@
           <span>+</span>
           <span>دسته‌بندی</span>
         </div>
+
+        <!-- 🌐 بخش لینک‌های شبکه‌های اجتماعی -->
         <div class="nav-social">
           <a href="https://siteup_web/linkedin" target="_blank">
             <button class="nav-social-item">
@@ -243,13 +259,18 @@
               <img src="./static/svg/whatsapp.svg" alt="WhatsApp" />
             </button>
           </a>
-          <!-- <a href="https://siteup_web/twitter" target="_blank">
+          <!-- لینک توییتر در صورت نیاز می‌توان فعال کرد -->
+          <!--
+          <a href="https://siteup_web/twitter" target="_blank">
             <button class="nav-social-item">
               <img src="./static/svg/twitter.svg" alt="Twitter" />
             </button>
-          </a> -->
+          </a>
+          -->
         </div>
       </nav>
+
+      <!-- پس‌زمینه منو برای بستن با کلیک بیرون -->
       <div id="nav-bg" class="nav-bg" onclick="handelOpenNav('close')"></div>
     </main>
   </body>

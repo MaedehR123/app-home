@@ -1,11 +1,11 @@
-/* Style For Slider */
-
+/* استایل مربوط به اسلایدر */
 .slider {
     width: 100%;
     height: 200px;
     position: relative;
 }
 
+/* افکت گرادینت تیره در پایین تصویر اسلایدر */
 .slider::after {
     position: absolute;
     top: 0;
@@ -16,6 +16,7 @@
     background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.645));
 }
 
+/* تنظیمات تصویر اسلایدر */
 .slider-img {
     position: absolute;
     width: 100%;
@@ -24,6 +25,7 @@
     object-position: center;
 }
 
+/* باکس جستجو */
 .search {
     width: 90%;
     margin: 0 auto;
@@ -38,6 +40,7 @@
     overflow: hidden;
 }
 
+/* دکمه جستجو */
 .search-btn {
     width: 35px;
     height: 35px;
@@ -47,10 +50,12 @@
     cursor: pointer;
 }
 
+/* آیکون داخل دکمه جستجو */
 .search-btn img {
     width: 20px;
 }
 
+/* فیلد ورودی جستجو */
 .search input {
     width: calc(100% - 35px);
     height: 35px;
@@ -59,13 +64,13 @@
     padding: 0 5px;
 }
 
+/* حذف خط دور فیلد هنگام فوکوس */
 .search input:focus {
     outline: none;
 }
 
 
-/* Style For Filter */
-
+/* استایل مربوط به فیلتر */
 .filter {
     width: 90%;
     position: relative;
@@ -79,6 +84,7 @@
     box-shadow: rgba(50, 50, 50, 0.1) 0px 4px 12px;
 }
 
+/* بخش بالای فیلتر (تب‌ها) */
 .filter-head {
     width: 100%;
     height: 50px;
@@ -87,6 +93,7 @@
     align-items: center;
 }
 
+/* دکمه‌های سربرگ فیلتر */
 .filter-head-btn {
     width: 100%;
     height: 50px;
@@ -98,10 +105,12 @@
     margin: 0 10px;
 }
 
+/* دکمه فعال در سربرگ فیلتر */
 .filter-head-btn-active {
     border-color:  tomato;
 }
 
+/* محتوای فیلتر */
 .filter-cont {
     width: 100%;
     display: flex;
@@ -109,6 +118,7 @@
     padding: 10px;
 }
 
+/* استایل فیلدهای ورودی و انتخاب در فیلتر */
 .filter-cont input ,
 .filter-cont select {
     width: 100%;
@@ -120,6 +130,7 @@
     background: #fff;
 }
 
+/* دکمه اعمال فیلتر */
 .filter-cont button {
     width: 100%;
     height: 35px;
@@ -131,8 +142,7 @@
 }
 
 
-/* Category Style */
-
+/* استایل دسته‌بندی‌ها */
 .category {
     width: 100%;
     /* background: #e0e0e0; */
@@ -143,11 +153,13 @@
     padding: 10px;
 }
 
+/* هر آیتم از دسته‌بندی */
 .category-item {
     display: flex;
     padding: 10px;
 }
 
+/* باکس داخلی آیتم دسته‌بندی */
 .category-item-inner {
     width: 120px;
     height: 140px;
@@ -161,7 +173,7 @@
     cursor: pointer;
 }
 
-
+/* آیکون داخل آیتم دسته‌بندی */
 .category-item-inner-icon {
     width: 50px;
     height: 50px;
@@ -172,11 +184,13 @@
     justify-content: center;
 }
 
+/* تصویر آیکون دسته‌بندی */
 .category-item-inner-icon img {
     width: 30px;
     opacity: 0.8;
 }
 
+/* عنوان دسته‌بندی */
 .category-item-inner span {
     font-size: 14px;
     margin-top: 20px;
@@ -184,8 +198,7 @@
 
 
 
-/* Style bigItem */
-
+/* استایل بخش اتاق‌ها یا آیتم‌های بزرگ */
 .someRooms {
     width: 100%;
     display: flex;
@@ -193,14 +206,15 @@
     margin-top: 30px;
 }
 
+/* عنوان بخش */
 .someRooms-head {
     width: 100%;
-    /* height: 40px; */
     display: flex;
     align-items: center;
     padding: 0 20px;
 }
 
+/* محتوای اسلاید اتاق‌ها */
 .someRooms-cont {
     width: 100%;
     display: flex;
@@ -209,11 +223,13 @@
     padding: 10px;
 }
 
+/* هر آیتم در لیست اتاق‌ها */
 .someRooms-cont-item {
     display: flex;
     padding: 10px;
 }
 
+/* باکس داخلی هر آیتم */
 .someRooms-cont-item-inner {
     width: 280px;
     height: 160px;
@@ -228,10 +244,12 @@
     cursor: pointer;
 }
 
+/* ارتفاع بزرگ‌تر برای برخی آیتم‌ها */
 .someRooms-cont-item-inner-bigHeight {
     height: 260px;
 }
 
+/* تصویر پس‌زمینه آیتم */
 .someRooms-cont-item-inner-img {
     position: absolute;
     width: 100%;
@@ -240,6 +258,7 @@
     object-position: center;
 }
 
+/* گرادینت تیره پایین تصویر */
 .someRooms-cont-item-inner::after {
     position: absolute;
     top: 0;
@@ -250,7 +269,7 @@
     background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.645));
 }
 
-
+/* توضیحات روی تصویر */
 .someRooms-cont-item-inner-des {
     width: 100%;
     display: flex;
@@ -261,18 +280,21 @@
     margin-bottom: 20px;
 }
 
+/* بخش چپ توضیحات (نام و امتیاز) */
 .someRooms-cont-item-inner-des-left {
     display: flex;
     flex-direction: column;
     color: white;
 }
 
+/* ردیف امتیاز */
 .someRooms-cont-item-inner-des-left-rate {
     display: flex;
     align-items: center;
     margin-top: 8px;
 }
 
+/* دایره‌های امتیاز */
 .someRooms-cont-item-inner-des-left-rate span {
     width: 10px;
     height: 10px;
@@ -282,7 +304,7 @@
     border-radius: 50%;
 }
 
-
+/* بخش راست توضیحات (قیمت و نمادها) */
 .someRooms-cont-item-inner-des-right {
     display: flex;
     flex-direction: column;
@@ -290,6 +312,7 @@
     color: tomato;
 }
 
+/* قیمت */
 .someRooms-cont-item-inner-des-right h4 {
     margin:0;
     color: white;
@@ -297,15 +320,14 @@
     font-size: 18px;
 }
 
+/* زیرنویس قیمت */
 .someRooms-cont-item-inner-des-right span {
     font-size: 14px;
 }
 
 
 
-
-/* Style product */
-
+/* استایل بخش محصولات */
 .product {
     width: 100%;
     display: flex;
@@ -313,14 +335,15 @@
     margin-top: 30px;
 }
 
+/* عنوان بخش محصولات */
 .product-head {
     width: 100%;
-    /* height: 40px; */
     display: flex;
     align-items: center;
     padding: 0 20px;
 }
 
+/* محتوای اسلاید محصولات */
 .product-cont {
     width: 100%;
     display: flex;
@@ -329,11 +352,13 @@
     padding: 10px;
 }
 
+/* هر آیتم محصول */
 .product-cont-item {
     display: flex;
     padding: 10px;
 }
 
+/* باکس داخلی آیتم محصول */
 .product-cont-item-inner {
     width: 120px;
     background: #fff;
@@ -347,6 +372,7 @@
     cursor: pointer;
 }
 
+/* تصویر محصول */
 .product-cont-item-inner-cover {
     width: 100%;
     height: 100px;
@@ -355,6 +381,7 @@
     border-radius: 20px 0 20px 0;
 }
 
+/* توضیحات محصول */
 .product-cont-item-inner-des {
     width: 100%;
     display: flex;
@@ -363,22 +390,26 @@
     padding: 5px;
 }
 
+/* عنوان محصول */
 .product-cont-item-inner-des h3 {
     margin: 0;
     font-size: 13px;
 }
 
+/* بخش امتیاز محصول */
 .product-cont-item-inner-des-rate {
     display: flex;
     align-items: center;
     margin: 8px 0;
 }
 
+/* آیکون‌های امتیاز */
 .product-cont-item-inner-des-rate img {
     width: 15px;
     opacity: 0.5;
 }
 
+/* بخش قیمت محصول */
 .product-cont-item-inner-des-price {
     display: flex;
     align-items: center;
@@ -386,8 +417,7 @@
     font-size: 14px;
 }
 
-
-
+/* قیمت و واحد پول */
 .product-cont-item-inner-des-price span:nth-child(2){
     font-size: 12px;
     margin-left: 8px;
@@ -395,13 +425,10 @@
 }
 
 
-/* Style Email */
-
+/* استایل بخش ایمیل */
 .email {
     width: 90%;
-    /* height: 200px; */
     position: relative;
-    /* background: red; */
     margin: 0 auto;
     margin-top: 50px;
     display: flex;
@@ -413,11 +440,13 @@
     background: #d0d7f2;
 }
 
+/* متن توضیحی ایمیل */
 .email span {
     font-size: 12px;
     color: #939393;
 }
 
+/* فیلد ورودی ایمیل */
 .email input {
     width: 80%;
     height: 35px;
@@ -427,6 +456,7 @@
     padding: 0 10px;
 }
 
+/* دکمه ارسال ایمیل */
 .email button {
     width: 100px;
     height: 30px;

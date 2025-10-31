@@ -1,86 +1,95 @@
-
-
-/* Style tablePage */
-
+/* استایل کلی صفحه جدول (tablePage) */
 .tablePage {
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    margin-top: 20px;
+    display: flex; /* استفاده از فلکس‌باکس برای چینش المان‌ها */
+    flex-direction: column; /* چینش عمودی آیتم‌ها */
+    margin-top: 20px; /* فاصله از بالا */
 }
 
+/* بخش عنوان یا سربرگ صفحه جدول */
 .tablePage-head {
     width: 100%;
-    /* height: 40px; */
+    /* height: 40px;  ارتفاع در صورت نیاز قابل فعال‌سازی */
     display: flex;
-    align-items: center;
-    padding: 0 20px;
+    align-items: center; /* تراز عمودی المان‌ها در وسط */
+    padding: 0 20px; /* فاصله داخلی افقی از چپ و راست */
 }
 
+/* محتوای اصلی صفحه جدول */
 .tablePage-cont {
     width: 100%;
     display: flex;
-    flex-direction: column;
-    padding:20px;
+    flex-direction: column; /* آیتم‌ها زیر هم قرار می‌گیرند */
+    padding: 20px; /* فاصله داخلی اطراف کل محتوا */
 }
 
+/* هر آیتم درون جدول یا لیست اصلی */
 .tablePage-cont-item {
     width: 100%;
-    border-radius: 20px;
-    background: #f5f5fb;
-    margin-bottom: 30px;
-    overflow: hidden;
-    cursor: pointer;
+    border-radius: 20px; /* گوشه‌های گرد */
+    background: #f5f5fb; /* رنگ پس‌زمینه ملایم */
+    margin-bottom: 30px; /* فاصله بین آیتم‌ها */
+    overflow: hidden; /* جلوگیری از بیرون‌زدن محتوا از باکس */
+    cursor: pointer; /* نمایش دست هنگام هاور */
 }
 
+/* تصویر بالای هر آیتم جدول (کاور) */
 .tablePage-cont-item-cover {
     width: 100%;
-    height: 220px;
-    object-fit: cover;
-    object-position: center;
-    border-radius: 20px;
+    height: 220px; /* ارتفاع ثابت برای تصاویر */
+    object-fit: cover; /* برش تصویر برای پوشش کامل */
+    object-position: center; /* تمرکز تصویر در مرکز */
+    border-radius: 20px; /* گوشه‌های گرد هماهنگ با والد */
 }
 
+/* بخش توضیحات زیر تصویر هر آیتم */
 .tablePage-cont-item-des {
     width: 100%;
-    height: 70px;
+    height: 70px; /* ارتفاع ثابت برای بخش توضیحات */
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px;
+    align-items: center; /* ترازبندی عمودی وسط */
+    justify-content: space-between; /* فاصله بین سمت چپ و راست */
+    padding: 10px; /* فاصله داخلی */
 }
 
+/* بخش سمت چپ توضیحات (معمولاً عنوان و امتیاز) */
 .tablePage-cont-item-des-left {
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* آیتم‌ها زیر هم */
 }
 
+/* عنوان آیتم (نام اتاق یا محصول و ...) */
 .tablePage-cont-item-des-left h3 {
     font-size: 14px;
-    margin: 0;
+    margin: 0; /* حذف فاصله پیش‌فرض عنوان */
 }
 
+/* بخش امتیاز (ستاره‌ها یا آیکون‌ها) */
 .tablePage-cont-item-des-left-rate {
     display: flex;
     align-items: center;
-    margin: 8px 0;
+    margin: 8px 0; /* فاصله بالا و پایین از سایر عناصر */
 }
 
+/* آیکون‌های امتیاز (مثلاً ستاره‌ها) */
 .tablePage-cont-item-des-left-rate img {
-    width: 15px;
-    opacity: 0.5;
+    width: 15px; /* اندازه آیکون */
+    opacity: 0.5; /* شفافیت کم برای جلوه بصری نرم */
 }
 
+/* بخش سمت راست توضیحات (قیمت، اطلاعات اضافی و ...) */
 .tablePage-cont-item-des-right {
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* آیتم‌ها زیر هم قرار بگیرند */
 }
 
+/* اولین سطر سمت راست (معمولاً قیمت یا مقدار اصلی) */
 .tablePage-cont-item-des-right span:nth-child(1) {
-    font-size: 16px;
+    font-size: 16px; /* اندازه بزرگ‌تر برای تاکید */
 }
 
+/* دومین سطر سمت راست (توضیحات فرعی یا واحد پول و ...) */
 .tablePage-cont-item-des-right span:nth-child(2) {
-    font-size: 12px;
-    color: #bababa;
+    font-size: 12px; /* اندازه کوچک‌تر برای توضیح */
+    color: #bababa; /* رنگ خاکستری برای تمایز */
 }

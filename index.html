@@ -1,412 +1,804 @@
 <html>
-  <head>
-    <title>اپلیکیشن کوچک</title>
-    <!-- فایل جاوااسکریپت برای کنترل تب‌ها، فیلترها و عملکرد دکمه‌ها -->
-    <script src="js/js.js"></script>
 
-    <!-- تنظیمات عمومی و سازگاری با مرورگر و موبایل -->
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
-    />
+<head>
+	<title>Tiny App</title>
+	<script src="js/js.js"></script>
+	<meta charset="utf-8" />
+	<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' />
+	<link rel="stylesheet" type="text/css" href="static/style/landing.css">
+	<link rel="stylesheet" type="text/css" href="static/style/tablePage.css">
+	<link rel="stylesheet" type="text/css" href="static/style/detailPage.css">
+	<link rel="stylesheet" type="text/css" href="static/style/global.css">
+</head>
 
-    <!-- فایل‌های استایل (CSS) برای بخش‌های مختلف صفحه -->
-    <link rel="stylesheet" type="text/css" href="static/style/landing.css" />
-    <link rel="stylesheet" type="text/css" href="static/style/tablePage.css" />
-    <link rel="stylesheet" type="text/css" href="static/style/detailPage.css" />
-    <link rel="stylesheet" type="text/css" href="static/style/global.css" />
-  </head>
+<body>
+	<main>
 
-  <body>
-    <main>
-      <!-- ✅ بخش صفحه اصلی -->
-      <section id="landing" class="tab tab-active">
-        <!-- 🎞️ بخش اسلایدر -->
-        <div class="slider">
-          <img src="./img/t5.webp" class="slider-img" />
-          <!-- 🔍 نوار جستجو  -->
-          <div class="search">
-            <div class="search-btn">
-              <img src="./static/svg/search.svg" />
-            </div>
-            <input type="text" placeholder="جستجوی خانه کوچک" />
-          </div>
-        </div>
+		<!-- Landing tab -->
+		<section id="landing" class="tab tab-active">
+			<!-- slider section -->
+			<div class="slider">
+				<img src="./img/t5.webp" class="slider-img" />
+				<div class="search">
+					<div class="search-btn">
+						<img src="./static/svg/search.svg" />
+					</div>
+					<input type="text" placeholder="Search a Tiny" />
+				</div>
+			</div>
 
-        <!-- 🧩 بخش فیلتر اتاق‌ها -->
-        <div class="filter">
-          <!-- دکمه‌های فیلتر دسته‌بندی -->
-          <div class="filter-head">
-            <button
-              onclick="handelChangeFilter(0)"
-              class="filter-head-btn filter-head-btn-active"
-            >
-              خانه کوچک
-            </button>
-            <button onclick="handelChangeFilter(1)" class="filter-head-btn">
-              کلبه
-            </button>
-            <button onclick="handelChangeFilter(2)" class="filter-head-btn">
-              لوکس
-            </button>
-          </div>
+			<!-- filter section -->
+			<div class="filter">
+				<div class="filter-head">
+					<button onclick="handelChangeFilter(0)" class="filter-head-btn filter-head-btn-active">Tiny</button>
+					<button onclick="handelChangeFilter(1)" class="filter-head-btn">Cottage</button>
+					<button onclick="handelChangeFilter(2)" class="filter-head-btn">Luxurys</button>
+				</div>
+				<form class="filter-cont">
+					<input type="text" onfocus="(this.type='date')" placeholder="Check In" />
+					<input type="text" onfocus="(this.type='date')" placeholder="Check Out" />
+					<select>
+						<option disabled selected>Room Type</option>
+						<option value="1">Single Rooms</option>
+						<option value="2">Double Rooms</option>
+						<option value="3">Luxury Rooms</option>
+						<option value="4">Family Rooms</option>
+					</select>
+					<select>
+						<option disabled selected>Room Number</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+					</select>
+					<button>Search</button>
+				</form>
+			</div>
 
-          <!-- فرم فیلتر برای جستجوی دقیق‌تر -->
-          <form class="filter-cont">
-            <input
-              type="text"
-              onfocus="(this.type='date')"
-              placeholder="تاریخ ورود"
-            />
-            <input
-              type="text"
-              onfocus="(this.type='date')"
-              placeholder="تاریخ خروج"
-            />
-            <select>
-              <option disabled selected>نوع اتاق</option>
-              <option value="1">اتاق یک‌نفره</option>
-              <option value="2">اتاق دونفره</option>
-              <option value="3">اتاق لوکس</option>
-              <option value="4">اتاق خانوادگی</option>
-            </select>
-            <select>
-              <option disabled selected>تعداد اتاق</option>
-              <option value="1">۱</option>
-              <option value="2">۲</option>
-              <option value="3">۳</option>
-              <option value="4">۴</option>
-            </select>
-            <button>جستجو</button>
-          </form>
-        </div>
+			<!-- category section -->
+			<div class="category">
+				<div class="category-item">
+					<div onclick="handelChangeTab('tablePage')" class="category-item-inner">
+						<div class="category-item-inner-icon">
+							<img src='./static/icon-png/2.png' />
+						</div>
+						<span>Tiny</span>
+					</div>
+				</div>
+				<div class="category-item">
+					<div onclick="handelChangeTab('tablePage')" class="category-item-inner">
+						<div class="category-item-inner-icon">
+							<img src='./static/icon-png/5.png' />
+						</div>
+						<span>Cottage</span>
+					</div>
+				</div>
+				<div class="category-item">
+					<div onclick="handelChangeTab('tablePage')" class="category-item-inner">
+						<div class="category-item-inner-icon">
+							<img src='./static/icon-png/4.png' />
+						</div>
+						<span>Luxury</span>
+					</div>
+				</div>
+				<div class="category-item">
+					<div onclick="handelChangeTab('tablePage')" class="category-item-inner">
+						<div class="category-item-inner-icon">
+							<img src='./static/icon-png/7.png' />
+						</div>
+						<span>Hotel</span>
+					</div>
+				</div>
+			</div>
 
-        <!-- 🏠 بخش دسته‌بندی اتاق‌ها -->
-        <div class="category">
-          <!-- هر گزینه با کلیک، صفحه مربوطه را باز می‌کند -->
-          <div class="category-item">
-            <div
-              onclick="handelChangeTab('tablePage')"
-              class="category-item-inner"
-            >
-              <div class="category-item-inner-icon">
-                <img src="./static/icon-png/2.png" />
-              </div>
-              <span>خانه کوچک</span>
-            </div>
-          </div>
-          <div class="category-item">
-            <div
-              onclick="handelChangeTab('tablePage')"
-              class="category-item-inner"
-            >
-              <div class="category-item-inner-icon">
-                <img src="./static/icon-png/5.png" />
-              </div>
-              <span>کلبه</span>
-            </div>
-          </div>
-          <div class="category-item">
-            <div
-              onclick="handelChangeTab('tablePage')"
-              class="category-item-inner"
-            >
-              <div class="category-item-inner-icon">
-                <img src="./static/icon-png/4.png" />
-              </div>
-              <span>لوکس</span>
-            </div>
-          </div>
-          <div class="category-item">
-            <div
-              onclick="handelChangeTab('tablePage')"
-              class="category-item-inner"
-            >
-              <div class="category-item-inner-icon">
-                <img src="./static/icon-png/7.png" />
-              </div>
-              <span>هتل</span>
-            </div>
-          </div>
-        </div>
+			<!-- favarite Section -->
+			<div class="someRooms">
+				<div class="someRooms-head"><b>Favorite Rooms</b></div>
+				<div class="someRooms-cont">
+					<div class="someRooms-cont-item">
+						<div onclick="handelChangeTab('detail')" class="someRooms-cont-item-inner">
+							<img src="./img/t7.webp" alt="room" class="someRooms-cont-item-inner-img" />
+							<div class="someRooms-cont-item-inner-des">
+								<div class="someRooms-cont-item-inner-des-left">
+									<span>Tiny Home</span>
+									<div class="someRooms-cont-item-inner-des-left-rate">
+										<span></span>
+										<span></span>
+										<span></span>
+										<span></span>
+										<span></span>
+									</div>
+								</div>
+								<div class="someRooms-cont-item-inner-des-right">
+									<h4>$15 </h4>
+									<span>Per night</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="someRooms-cont-item">
+						<div onclick="handelChangeTab('detail')" class="someRooms-cont-item-inner">
+							<img src="./img/t10.webp" alt="room" class="someRooms-cont-item-inner-img" />
+							<div class="someRooms-cont-item-inner-des">
+								<div class="someRooms-cont-item-inner-des-left">
+									<span>Tiny Home</span>
+									<div class="someRooms-cont-item-inner-des-left-rate">
+										<span></span>
+										<span></span>
+										<span></span>
+										<span></span>
+										<span></span>
+									</div>
+								</div>
+								<div class="someRooms-cont-item-inner-des-right">
+									<h4>$15 </h4>
+									<span>Per night</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="someRooms-cont-item">
+						<div onclick="handelChangeTab('detail')" class="someRooms-cont-item-inner">
+							<img src="./img/t6.webp" alt="room" class="someRooms-cont-item-inner-img" />
+							<div class="someRooms-cont-item-inner-des">
+								<div class="someRooms-cont-item-inner-des-left">
+									<span>Tiny Home</span>
+									<div class="someRooms-cont-item-inner-des-left-rate">
+										<span></span>
+										<span></span>
+										<span></span>
+										<span></span>
+										<span></span>
+									</div>
+								</div>
+								<div class="someRooms-cont-item-inner-des-right">
+									<h4>$15 </h4>
+									<span>Per night</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 
-        <!-- 💖 بخش اتاق‌های محبوب -->
-        <div class="someRooms">
-          <div class="someRooms-head"><b>اتاق‌های محبوب</b></div>
-          <div class="someRooms-cont">
+			<!-- Product Section -->
+			<div class="product">
+				<div class="product-head"><b>Some Rooms</b></div>
+				<div class="product-cont">
+					<div class="product-cont-item">
+						<div onclick="handelChangeTab('detail')" class="product-cont-item-inner">
+							<img src="./img/t3.webp" alt="cover" class="product-cont-item-inner-cover" />
+							<div class="product-cont-item-inner-des">
+								<h3>Tiny Home 1</h3>
+								<div class="product-cont-item-inner-des-rate">
+									<img src="./static/svg/star.svg" />
+									<img src="./static/svg/star.svg" />
+									<img src="./static/svg/star.svg" />
+									<img src="./static/svg/star.svg" />
+								</div>
+								<!-- <div class="product-cont-item-inner-des-price">
+									<span>$15 </span>
+									<span>per night</span>
+								</div> -->
+							</div>
+						</div>
+					</div>
+					<div class="product-cont-item">
+						<div onclick="handelChangeTab('detail')" class="product-cont-item-inner">
+							<img src="./img/t4.webp" alt="cover" class="product-cont-item-inner-cover" />
+							<div class="product-cont-item-inner-des">
+								<h3>Tiny Home 2</h3>
+								<div class="product-cont-item-inner-des-rate">
+									<img src="./static/svg/star.svg" />
+									<img src="./static/svg/star.svg" />
+									<img src="./static/svg/star.svg" />
+									<img src="./static/svg/star.svg" />
+								</div>
+								<!-- <div class="product-cont-item-inner-des-price">
+									<span>$15 </span>
+									<span>per night</span>
+								</div> -->
+							</div>
+						</div>
+					</div>
+					<div class="product-cont-item">
+						<div onclick="handelChangeTab('detail')" class="product-cont-item-inner">
+							<img src="./img/t5.webp" alt="cover" class="product-cont-item-inner-cover" />
+							<div class="product-cont-item-inner-des">
+								<h3>Tiny Home 3</h3>
+								<div class="product-cont-item-inner-des-rate">
+									<img src="./static/svg/star.svg" />
+									<img src="./static/svg/star.svg" />
+									<img src="./static/svg/star.svg" />
+									<img src="./static/svg/star.svg" />
+								</div>
+								<!-- <div class="product-cont-item-inner-des-price">
+									<span>$15 </span>
+									<span>per night</span>
+								</div> -->
+							</div>
+						</div>
+					</div>
+					<div class="product-cont-item">
+						<div onclick="handelChangeTab('detail')" class="product-cont-item-inner">
+							<img src="./img/t1.webp" alt="cover" class="product-cont-item-inner-cover" />
+							<div class="product-cont-item-inner-des">
+								<h3>Tiny Home 4</h3>
+								<div class="product-cont-item-inner-des-rate">
+									<img src="./static/svg/star.svg" />
+									<img src="./static/svg/star.svg" />
+									<img src="./static/svg/star.svg" />
+									<img src="./static/svg/star.svg" />
+								</div>
+								<!-- <div class="product-cont-item-inner-des-price">
+									<span>$15 </span>
+									<span>per night</span>
+								</div> -->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 
-            <!-- آیتم شماره یک  -->
-            <div class="someRooms-cont-item">
-              <div
-                onclick="handelChangeTab('detail')"
-                class="someRooms-cont-item-inner"
-              >
-                <img
-                  src="./img/t7.webp"
-                  alt="room"
-                  class="someRooms-cont-item-inner-img"
-                />
-                <div class="someRooms-cont-item-inner-des">
-                  <div class="someRooms-cont-item-inner-des-left">
-                    <span>خانه کوچک</span>
-                  </div>
-                  <div class="someRooms-cont-item-inner-des-right">
-                    <h4>2/000/000 تومان</h4>
-                    <span>در هر شب</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-    
-            
-             <!-- آیتم شماره دوم  -->
+			<form class="email">
+				<h3>Newsletter</h3>
+				<span>Enter you email to recieive newsletters</span>
+				<input type="email" placeholder="Enter Your Email" />
+				<button>Send</button>
+			</form>
 
-            <div class="someRooms-cont-item">
-              <div
-                onclick="handelChangeTab('detail')"
-                class="someRooms-cont-item-inner"
-              >
-                <img
-                  src="./img/t14.webp"
-                  alt="room"
-                  class="someRooms-cont-item-inner-img"
-                />
-                <div class="someRooms-cont-item-inner-des">
-                  <div class="someRooms-cont-item-inner-des-left">
-                    <span> کلبه</span>
-                  </div>
-                  <div class="someRooms-cont-item-inner-des-right">
-                    <h4>4/250/000 تومان</h4>
-                    <span>در هر شب</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-             <!-- آیتم شماره سوم  -->
-            
-            <div class="someRooms-cont-item">
-              <div
-                onclick="handelChangeTab('detail')"
-                class="someRooms-cont-item-inner"
-              >
-                <img
-                  src="./img/t8.webp"
-                  alt="room"
-                  class="someRooms-cont-item-inner-img"
-                />
-                <div class="someRooms-cont-item-inner-des">
-                  <div class="someRooms-cont-item-inner-des-left">
-                    <span>خانه کوچک</span>
-                  </div>
-                  <div class="someRooms-cont-item-inner-des-right">
-                    <h4>3/100/000 تومان</h4>
-                    <span>در هر شب</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-             <!-- آیتم شماره چهارم  -->
-            
-            <div class="someRooms-cont-item">
-              <div
-                onclick="handelChangeTab('detail')"
-                class="someRooms-cont-item-inner"
-              >
-                <img
-                  src="./img/t13.webp"
-                  alt="room"
-                  class="someRooms-cont-item-inner-img"
-                />
-                <div class="someRooms-cont-item-inner-des">
-                  <div class="someRooms-cont-item-inner-des-left">
-                    <span> لوکس</span>
-                  </div>
-                  <div class="someRooms-cont-item-inner-des-right">
-                    <h4>6/100/000 تومان</h4>
-                    <span>در هر شب</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-
-
-        <!-- 🏕️ بخش محصولات (اتاق‌های دیگر) -->
-        <div class="product">
-          <div class="product-head"><b>برخی اتاق‌ها</b></div>
-          <div class="product-cont">
-
-
-            <!-- اتاق شماره یک -->
-            <div class="product-cont-item">
-              <div
-                onclick="handelChangeTab('detail')"
-                class="product-cont-item-inner"
-              >
-                <img
-                  src="./img/room1.jpg"
-                  alt="cover"
-                  class="product-cont-item-inner-cover"
-                />
-                <div class="product-cont-item-inner-des">
-                  <h3>اتاق  1</h3>
-                  <!-- ⭐ بخش نمایش امتیاز -->
-                  <div class="product-cont-item-inner-des-rate">
-                    <img src="./static/svg/star.svg" />
-                    <img src="./static/svg/star.svg" />
-                    <img src="./static/svg/star.svg" />
-                    <img src="./static/svg/star.svg" />
-                    <img src="./static/svg/star.svg" />
-                  </div>
-                </div>
-              </div>
-            </div>
-              
-              <!-- اتاق شماره دوم -->
-              <div class="product-cont-item">
-              <div
-                onclick="handelChangeTab('detail')"
-                class="product-cont-item-inner"
-              >
-                <img
-                  src="./img/room2.jpg"
-                  alt="cover"
-                  class="product-cont-item-inner-cover"
-                />
-                <div class="product-cont-item-inner-des">
-                  <h3>اتاق 2</h3>
-                  <!-- ⭐ بخش نمایش امتیاز -->
-                  <div class="product-cont-item-inner-des-rate">
-                    <img src="./static/svg/star.svg" />
-                    <img src="./static/svg/star.svg" />
-                    <img src="./static/svg/star.svg" />
-                    <img src="./static/svg/star.svg" />
-                    <img src="./static/svg/star.svg" />
-                  </div>
-                </div>
-              </div>
-            </div>
-
-             <!-- اتاق شماره سوم -->
-              <div class="product-cont-item">
-              <div
-                onclick="handelChangeTab('detail')"
-                class="product-cont-item-inner"
-              >
-                <img
-                  src="./img/room3.jpg"
-                  alt="cover"
-                  class="product-cont-item-inner-cover"
-                />
-                <div class="product-cont-item-inner-des">
-                  <h3>اتاق 3</h3>
-                  <!-- ⭐ بخش نمایش امتیاز -->
-                  <div class="product-cont-item-inner-des-rate">
-                    <img src="./static/svg/star.svg" />
-                    <img src="./static/svg/star.svg" />
-                    <img src="./static/svg/star.svg" />
-                    <img src="./static/svg/star.svg" />
-                    <img src="./static/svg/star.svg" />
-                  </div>
-                </div>
-              </div>
-            </div>
+		</section>
 
 
 
+		<section id="tablePage" class="tab tab-hide">
+			<div class="tablePage">
+				<div class="tablePage-head">Most Favorite</div>
+				<div class="tablePage-cont">
+					<div onclick="handelChangeTab('detail')" class="tablePage-cont-item">
+						<img src="./img/t20.webp" alt="'cover" class="tablePage-cont-item-cover" />
+						<div class="tablePage-cont-item-des">
+							<div class="tablePage-cont-item-des-left">
+								<h3>Tiny House 1</h3>
+								<div class="tablePage-cont-item-des-left-rate">
+									<img src="./static/svg/star.svg" />
+									<img src="./static/svg/star.svg" />
+									<img src="./static/svg/star.svg" />
+									<img src="./static/svg/star.svg" />
+								</div>
+							</div>
+							<div class="tablePage-cont-item-des-right">
+								<span>$ 15</span>
+								<span>per night</span>
+							</div>
+						</div>
+					</div>
+					<div onclick="handelChangeTab('detail')" class="tablePage-cont-item">
+						<img src="./img/t18.webp" alt="'cover" class="tablePage-cont-item-cover" />
+						<div class="tablePage-cont-item-des">
+							<div class="tablePage-cont-item-des-left">
+								<h3>Tiny House 2</h3>
+								<div class="tablePage-cont-item-des-left-rate">
+									<img src="./static/svg/star.svg" />
+									<img src="./static/svg/star.svg" />
+									<img src="./static/svg/star.svg" />
+									<img src="./static/svg/star.svg" />
+								</div>
+							</div>
+							<div class="tablePage-cont-item-des-right">
+								<span>$ 15</span>
+								<span>per night</span>
+							</div>
+						</div>
+					</div>
+					<div onclick="handelChangeTab('detail')" class="tablePage-cont-item">
+						<img src="./img/t19.webp" alt="'cover" class="tablePage-cont-item-cover" />
+						<div class="tablePage-cont-item-des">
+							<div class="tablePage-cont-item-des-left">
+								<h3>Tiny House 3</h3>
+								<div class="tablePage-cont-item-des-left-rate">
+									<img src="./static/svg/star.svg" />
+									<img src="./static/svg/star.svg" />
+									<img src="./static/svg/star.svg" />
+									<img src="./static/svg/star.svg" />
+								</div>
+							</div>
+							<div class="tablePage-cont-item-des-right">
+								<span>$ 15</span>
+								<span>per night</span>
+							</div>
+						</div>
+					</div>
+					<div onclick="handelChangeTab('detail')" class="tablePage-cont-item">
+						<img src="./img/t1.webp" alt="'cover" class="tablePage-cont-item-cover" />
+						<div class="tablePage-cont-item-des">
+							<div class="tablePage-cont-item-des-left">
+								<h3>Tiny House 4</h3>
+								<div class="tablePage-cont-item-des-left-rate">
+									<img src="./static/svg/star.svg" />
+									<img src="./static/svg/star.svg" />
+									<img src="./static/svg/star.svg" />
+									<img src="./static/svg/star.svg" />
+								</div>
+							</div>
+							<div class="tablePage-cont-item-des-right">
+								<span>$ 15</span>
+								<span>per night</span>
+							</div>
+						</div>
+					</div>
+					<div onclick="handelChangeTab('detail')" class="tablePage-cont-item">
+						<img src="./img/t3.webp" alt="'cover" class="tablePage-cont-item-cover" />
+						<div class="tablePage-cont-item-des">
+							<div class="tablePage-cont-item-des-left">
+								<h3>Tiny House 5</h3>
+								<div class="tablePage-cont-item-des-left-rate">
+									<img src="./static/svg/star.svg" />
+									<img src="./static/svg/star.svg" />
+									<img src="./static/svg/star.svg" />
+									<img src="./static/svg/star.svg" />
+								</div>
+							</div>
+							<div class="tablePage-cont-item-des-right">
+								<span>$ 15</span>
+								<span>per night</span>
+							</div>
+						</div>
+					</div>
+					<div onclick="handelChangeTab('detail')" class="tablePage-cont-item">
+						<img src="./img/t16.webp" alt="'cover" class="tablePage-cont-item-cover" />
+						<div class="tablePage-cont-item-des">
+							<div class="tablePage-cont-item-des-left">
+								<h3>Tiny House 6</h3>
+								<div class="tablePage-cont-item-des-left-rate">
+									<img src="./static/svg/star.svg" />
+									<img src="./static/svg/star.svg" />
+									<img src="./static/svg/star.svg" />
+									<img src="./static/svg/star.svg" />
+								</div>
+							</div>
+							<div class="tablePage-cont-item-des-right">
+								<span>$ 15</span>
+								<span>per night</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
 
 
-          </div>
-        </div>
 
-        <!-- 📧 بخش عضویت در خبرنامه -->
-        <form class="email">
-          <h3>تخفیف ها و طرح ها</h3>
-          <span>برای دریافت تخفیف و طرح های پیشنهادی ایمیل خود را وارد کنید</span>
-          <input type="email" placeholder="ایمیل خود را وارد کنید" />
-          <button>ارسال</button>
-        </form>
-      </section>
 
-      <!-- 🧭 منوی پایین صفحه (Navigation Bottom Menu) -->
-      <section class="menu">
-        <button onclick="handelChangeTab('favorite')" class="menu-item">
-          <img src="./static/svg/star.svg" />
-        </button>
-        <button onclick="handelChangeTab('tablePage')" class="menu-item">
-          <img src="./static/svg/table.svg" />
-        </button>
-        <button onclick="handelChangeTab('landing')" class="menu-item">
-          <img src="./static/svg/home.svg" />
-        </button>
-        <button onclick="handelOpenNav('open')" class="menu-item">
-          <img src="./static/svg/list.svg" />
-        </button>
-      </section>
 
-      <!-- 📋 منوی کناری (Navigation Side Menu) -->
-      <nav id="nav" class="nav">
-        <!-- لوگوی سایت در منوی کناری -->
-        <button class="nav-logo" onclick="handelChangeTab('landing')">
-          <img src="./static/svg/home2.svg" />
-          <span>خانه</span>
-          <span>کوچک</span>
-        </button>
+		<section id="favorite" class="tab tab-hide">
+			<!-- favarite Section -->
+			<div class="someRooms">
+				<div class="someRooms-head"><b>Discover</b></div>
+				<div class="someRooms-cont">
+					<div class="someRooms-cont-item">
+						<div onclick="handelChangeTab('detail')"
+							class="someRooms-cont-item-inner someRooms-cont-item-inner-bigHeight">
+							<img src="./img/t13.webp" alt="room" class="someRooms-cont-item-inner-img" />
+							<div class="someRooms-cont-item-inner-des">
+								<div class="someRooms-cont-item-inner-des-left">
+									<span>Tiny Home</span>
+									<div class="someRooms-cont-item-inner-des-left-rate">
+										<span></span>
+										<span></span>
+										<span></span>
+										<span></span>
+										<span></span>
+									</div>
+								</div>
+								<div class="someRooms-cont-item-inner-des-right">
+									<h4>$15 </h4>
+									<span>Per night</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="someRooms-cont-item">
+						<div onclick="handelChangeTab('detail')"
+							class="someRooms-cont-item-inner someRooms-cont-item-inner-bigHeight">
+							<img src="./img/t12.webp" alt="room" class="someRooms-cont-item-inner-img" />
+							<div class="someRooms-cont-item-inner-des">
+								<div class="someRooms-cont-item-inner-des-left">
+									<span>Tiny Home</span>
+									<div class="someRooms-cont-item-inner-des-left-rate">
+										<span></span>
+										<span></span>
+										<span></span>
+										<span></span>
+										<span></span>
+									</div>
+								</div>
+								<div class="someRooms-cont-item-inner-des-right">
+									<h4>$15 </h4>
+									<span>Per night</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="someRooms-cont-item">
+						<div onclick="handelChangeTab('detail')"
+							class="someRooms-cont-item-inner someRooms-cont-item-inner-bigHeight">
+							<img src="./img/t2.webp" alt="room" class="someRooms-cont-item-inner-img" />
+							<div class="someRooms-cont-item-inner-des">
+								<div class="someRooms-cont-item-inner-des-left">
+									<span>Tiny Home</span>
+									<div class="someRooms-cont-item-inner-des-left-rate">
+										<span></span>
+										<span></span>
+										<span></span>
+										<span></span>
+										<span></span>
+									</div>
+								</div>
+								<div class="someRooms-cont-item-inner-des-right">
+									<h4>$15 </h4>
+									<span>Per night</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 
-        <!-- آیتم‌های منوی کناری -->
-        <div class="nav-item" onclick="handelChangeTab('landing')">
-          <span>+</span>
-          <span>صفحه اصلی</span>
-        </div>
-        <div class="nav-item" onclick="handelChangeTab('detail')">
-          <span>+</span>
-          <span>جزئیات</span>
-        </div>
-        <div class="nav-item" onclick="handelChangeTab('favorite')">
-          <span>+</span>
-          <span>علاقه‌مندی‌ها</span>
-        </div>
-        <div class="nav-item" onclick="handelChangeTab('tablePage')">
-          <span>+</span>
-          <span>دسته‌بندی</span>
-        </div>
+			<!-- Product Section -->
+			<div class="product">
+				<div class="product-head"><b>Popular Rooms</b></div>
+				<div class="product-cont">
+					<div class="product-cont-item">
+						<div onclick="handelChangeTab('detail')" class="product-cont-item-inner">
+							<img src="./img/t14.webp" alt="cover" class="product-cont-item-inner-cover" />
+							<div class="product-cont-item-inner-des">
+								<h3>Tiny Home 1</h3>
+								<div class="product-cont-item-inner-des-rate">
+									<img src="./static/svg/star.svg" />
+									<img src="./static/svg/star.svg" />
+									<img src="./static/svg/star.svg" />
+									<img src="./static/svg/star.svg" />
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="product-cont-item">
+						<div onclick="handelChangeTab('detail')" class="product-cont-item-inner">
+							<img src="./img/t15.webp" alt="cover" class="product-cont-item-inner-cover" />
+							<div class="product-cont-item-inner-des">
+								<h3>Tiny Home 2</h3>
+								<div class="product-cont-item-inner-des-rate">
+									<img src="./static/svg/star.svg" />
+									<img src="./static/svg/star.svg" />
+									<img src="./static/svg/star.svg" />
+									<img src="./static/svg/star.svg" />
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="product-cont-item">
+						<div onclick="handelChangeTab('detail')" class="product-cont-item-inner">
+							<img src="./img/t16.webp" alt="cover" class="product-cont-item-inner-cover" />
+							<div class="product-cont-item-inner-des">
+								<h3>Tiny Home 3</h3>
+								<div class="product-cont-item-inner-des-rate">
+									<img src="./static/svg/star.svg" />
+									<img src="./static/svg/star.svg" />
+									<img src="./static/svg/star.svg" />
+									<img src="./static/svg/star.svg" />
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="product-cont-item">
+						<div onclick="handelChangeTab('detail')" class="product-cont-item-inner">
+							<img src="./img/t17.webp" alt="cover" class="product-cont-item-inner-cover" />
+							<div class="product-cont-item-inner-des">
+								<h3>Tiny Home 4</h3>
+								<div class="product-cont-item-inner-des-rate">
+									<img src="./static/svg/star.svg" />
+									<img src="./static/svg/star.svg" />
+									<img src="./static/svg/star.svg" />
+									<img src="./static/svg/star.svg" />
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 
-        <!-- 🌐 بخش لینک‌های شبکه‌های اجتماعی -->
-        <div class="nav-social">
-          <a href="https://siteup_web/linkedin" target="_blank">
-            <button class="nav-social-item">
-              <img src="./static/svg/linkedin.svg" alt="LinkedIn" />
-            </button>
-          </a>
-          <a href="https://siteup_web/telegram" target="_blank">
-            <button class="nav-social-item">
-              <img src="./static/svg/telegram.svg" alt="Telegram" />
-            </button>
-          </a>
-          <a href="https://siteup_web/whatsapp" target="_blank">
-            <button class="nav-social-item">
-              <img src="./static/svg/whatsapp.svg" alt="WhatsApp" />
-            </button>
-          </a>
-          <!-- لینک توییتر در صورت نیاز می‌توان فعال کرد -->
-          <!--
-          <a href="https://siteup_web/twitter" target="_blank">
-            <button class="nav-social-item">
-              <img src="./static/svg/twitter.svg" alt="Twitter" />
-            </button>
-          </a>
-          -->
-        </div>
-      </nav>
+			<!-- Product Section -->
+			<div class="product">
+				<div class="product-head"><b>Luxury Rooms</b></div>
+				<div class="product-cont">
+					<div class="product-cont-item">
+						<div onclick="handelChangeTab('detail')" class="product-cont-item-inner">
+							<img src="./img/t5.webp" alt="cover" class="product-cont-item-inner-cover" />
+							<div class="product-cont-item-inner-des">
+								<h3>Tiny Home 1</h3>
+								<div class="product-cont-item-inner-des-rate">
+									<img src="./static/svg/star.svg" />
+									<img src="./static/svg/star.svg" />
+									<img src="./static/svg/star.svg" />
+									<img src="./static/svg/star.svg" />
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="product-cont-item">
+						<div onclick="handelChangeTab('detail')" class="product-cont-item-inner">
+							<img src="./img/t11.webp" alt="cover" class="product-cont-item-inner-cover" />
+							<div class="product-cont-item-inner-des">
+								<h3>Tiny Home 2</h3>
+								<div class="product-cont-item-inner-des-rate">
+									<img src="./static/svg/star.svg" />
+									<img src="./static/svg/star.svg" />
+									<img src="./static/svg/star.svg" />
+									<img src="./static/svg/star.svg" />
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="product-cont-item">
+						<div onclick="handelChangeTab('detail')" class="product-cont-item-inner">
+							<img src="./img/t13.webp" alt="cover" class="product-cont-item-inner-cover" />
+							<div class="product-cont-item-inner-des">
+								<h3>Tiny Home 3</h3>
+								<div class="product-cont-item-inner-des-rate">
+									<img src="./static/svg/star.svg" />
+									<img src="./static/svg/star.svg" />
+									<img src="./static/svg/star.svg" />
+									<img src="./static/svg/star.svg" />
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="product-cont-item">
+						<div onclick="handelChangeTab('detail')" class="product-cont-item-inner">
+							<img src="./img/t1.webp" alt="cover" class="product-cont-item-inner-cover" />
+							<div class="product-cont-item-inner-des">
+								<h3>Tiny Home 4</h3>
+								<div class="product-cont-item-inner-des-rate">
+									<img src="./static/svg/star.svg" />
+									<img src="./static/svg/star.svg" />
+									<img src="./static/svg/star.svg" />
+									<img src="./static/svg/star.svg" />
+								</div>
+								<!-- <div class="product-cont-item-inner-des-price">
+									<span>$15 </span>
+									<span>per night</span>
+								</div> -->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 
-      <!-- پس‌زمینه منو برای بستن با کلیک بیرون -->
-      <div id="nav-bg" class="nav-bg" onclick="handelOpenNav('close')"></div>
-    </main>
-  </body>
+		</section>
+
+
+
+		<section id="detail" class="tab tab-hide">
+			<!-- detail Section -->
+			<div class="detail">
+				<div class="detail-slider">
+					<img id="detail-slider-cover" class="detail-slider-cover" src="./img/t10.webp" alt="cover" />
+					<div class="detail-cont">
+						<div class="detail-cont-item">
+							<img src="./img/t6.webp" onclick="handelChangeImage('./img/t6.webp')"
+								class="detail-cont-item-inner" alt="cover" />
+						</div>
+						<div class="detail-cont-item">
+							<img src="./img/t7.webp" onclick="handelChangeImage('./img/t7.webp')"
+								class="detail-cont-item-inner" alt="cover" />
+						</div>
+						<div class="detail-cont-item">
+							<img src="./img/t2.webp" onclick="handelChangeImage('./img/t2.webp')"
+								class="detail-cont-item-inner" alt="cover" />
+						</div>
+						<div class="detail-cont-item">
+							<img src="./img/t1.webp" onclick="handelChangeImage('./img/t1.webp')"
+								class="detail-cont-item-inner" alt="cover" />
+						</div>
+
+						<div class="detail-cont-item">
+							<img src="./img/t10.webp" onclick="handelChangeImage('./img/t10.webp')"
+								class="detail-cont-item-inner" alt="cover" />
+						</div>
+					</div>
+				</div>
+				<div class="detail-head">
+					<div class="detail-head-left">
+						<h1>Tiny Room</h1>
+						<div class="detail-head-left-rate">
+							<span></span>
+							<span></span>
+							<span></span>
+							<span></span>
+							<span></span>
+						</div>
+					</div>
+					<div class="detail-head-right">
+						<span>$125</span>
+						<span>Per night</span>
+					</div>
+				</div>
+				<div class="detail-facilities">
+					<div class="detail-facilities-head">
+						<span>Facilities</span>
+					</div>
+					<div class="detail-facilities-cont">
+						<div class="detail-facilities-cont-item">
+							<div class="detail-facilities-cont-item-inner">
+								<div class="detail-facilities-cont-item-inner-icon">
+									<img src="./static/svg/pool.svg" alt="icon" />
+								</div>
+								<span>Pool</span>
+							</div>
+						</div>
+						<div class="detail-facilities-cont-item">
+							<div class="detail-facilities-cont-item-inner">
+								<div class="detail-facilities-cont-item-inner-icon">
+									<img src="./static/svg/wifi.svg" alt="icon" />
+								</div>
+								<span>Wifi</span>
+							</div>
+						</div>
+						<div class="detail-facilities-cont-item">
+							<div class="detail-facilities-cont-item-inner">
+								<div class="detail-facilities-cont-item-inner-icon">
+									<img src="./static/svg/sun.svg" alt="icon" />
+								</div>
+								<span>Garden</span>
+							</div>
+						</div>
+						<div class="detail-facilities-cont-item">
+							<div class="detail-facilities-cont-item-inner">
+								<div class="detail-facilities-cont-item-inner-icon">
+									<img src="./static/svg/phone.svg" alt="icon" />
+								</div>
+								<span>Phone</span>
+							</div>
+						</div>
+						<div class="detail-facilities-cont-item">
+							<div class="detail-facilities-cont-item-inner">
+								<div class="detail-facilities-cont-item-inner-icon">
+									<img src="./static/svg/pool.svg" alt="icon" />
+								</div>
+								<span>Pool</span>
+							</div>
+						</div>
+						<div class="detail-facilities-cont-item">
+							<div class="detail-facilities-cont-item-inner">
+								<div class="detail-facilities-cont-item-inner-icon">
+									<img src="./static/svg/wifi.svg" alt="icon" />
+								</div>
+								<span>Wifi</span>
+							</div>
+						</div>
+						<div class="detail-facilities-cont-item">
+							<div class="detail-facilities-cont-item-inner">
+								<div class="detail-facilities-cont-item-inner-icon">
+									<img src="./static/svg/sun.svg" alt="icon" />
+								</div>
+								<span>Garden</span>
+							</div>
+						</div>
+						<div class="detail-facilities-cont-item">
+							<div class="detail-facilities-cont-item-inner">
+								<div class="detail-facilities-cont-item-inner-icon">
+									<img src="./static/svg/phone.svg" alt="icon" />
+								</div>
+								<span>Phone</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="detail-des">
+					<div class="detail-des-head">
+						<span>Description</span>
+					</div>
+					<div class="detail-des-cont">
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum minus fuga omnis. Officiis
+						nisi voluptas ullam, accusamus harum eos repellat.ّ
+					</div>
+				</div>
+				<div class="detail-reserve">
+					<div class="detail-reserve-head"><span>Quick Reserve</span></div>
+					<form class="detail-reserve-cont">
+						<input type="text" onfocus="(this.type='date')" placeholder="Check In" />
+						<input type="text" onfocus="(this.type='date')" placeholder="Check Out" />
+						<select>
+							<option disabled selected>Room Type</option>
+							<option value="1">Single Rooms</option>
+							<option value="2">Double Rooms</option>
+							<option value="3">Luxury Rooms</option>
+							<option value="4">Family Rooms</option>
+						</select>
+						<select>
+							<option disabled selected>Room Number</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+						</select>
+						<button>Reserve</button>
+					</form>
+				</div>
+			</div>
+		</section>
+
+
+
+
+		<section class="menu">
+			<button onclick="handelChangeTab('favorite')" class="menu-item">
+				<img src="./static/svg/star.svg" />
+			</button>
+			<button onclick="handelChangeTab('tablePage')" class="menu-item">
+				<img src="./static/svg/table.svg" />
+			</button>
+			<button onclick="handelChangeTab('landing')" class="menu-item">
+				<img src="./static/svg/home.svg" />
+			</button>
+			<button onclick="handelOpenNav('open')" class="menu-item">
+				<img src="./static/svg/list.svg" />
+			</button>
+		</section>
+
+
+		<nav id="nav" class="nav">
+			<button class="nav-logo" onclick="handelChangeTab('landing')">
+				<img src="./static/svg/home2.svg" />
+				<span>Tiny</span>
+				<span>House</span>
+			</button>
+			<div class="nav-item" onclick="handelChangeTab('landing')">
+				<span>+</span>
+				<span>Home</span>
+			</div>
+			<div class="nav-item" onclick="handelChangeTab('detail')">
+				<span>+</span>
+				<span>Detail</span>
+			</div>
+			<div class="nav-item" onclick="handelChangeTab('favorite')">
+				<span>+</span>
+				<span>Favorite</span>
+			</div>
+			<div class="nav-item" onclick="handelChangeTab('tablePage')">
+				<span>+</span>
+				<span>Category</span>
+			</div>
+			<div class="nav-social">
+				<a href="https://www.linkedin.com/in/ehsanaghahoseini" target="_blank">
+					<button class="nav-social-item">
+						<img src="./static/svg/linkedin.svg" alt="logo" />
+					</button>
+				</a>
+				<a href="https://www.linkedin.com/in/ehsanaghahoseini" target="_blank">
+					<button class="nav-social-item">
+						<img src="./static/svg/telegram.svg" alt="logo" />
+					</button>
+				</a>
+				<a href="https://www.linkedin.com/in/ehsanaghahoseini" target="_blank">
+					<button class="nav-social-item">
+						<img src="./static/svg/whatsapp.svg" alt="logo" />
+					</button>
+				</a>
+				<a href="https://www.linkedin.com/in/ehsanaghahoseini" target="_blank">
+					<button class="nav-social-item">
+						<img src="./static/svg/twitter.svg" alt="logo" />
+					</button>
+				</a>
+			</div>
+		</nav>
+		<div id="nav-bg" class="nav-bg" onclick="handelOpenNav('close')"></div>
+
+
+
+
+	</main>
+</body>
+
 </html>
